@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+app.db
+
+# Node
+client/node_modules/
+client/.vite/
+client/dist/
+
+# Local data
+uploads/
+.env
+.DS_Store
+
+# Editor
+.vscode/
+.idea/

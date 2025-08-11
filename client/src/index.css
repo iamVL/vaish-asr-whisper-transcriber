@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/* Tailwind v4: define your brand tokens here */
+@theme {
+  --color-primary-900: #001B4B;
+  --color-primary-700: #02457A;
+  --color-primary-500: #0178BE;
+  --color-primary-300: #97CADB;
+  --color-primary-100: #D6E8EE;
+
+  --color-success: #16a34a;
+  --color-danger:  #dc2626;
+  --color-warn:    #f59e0b;
+
+  --radius-xl2: 1.25rem;
+  --shadow-soft: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+html, body, #root { height: 100%; }
