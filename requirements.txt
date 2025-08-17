@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+SQLAlchemy
+python-multipart
+python-jose[cryptography]
+passlib[bcrypt]
+pydantic-settings
+faster-whisper
