@@ -39,7 +39,9 @@ A full-stack speech-to-text transcription web app featuring a React frontend and
 
 ⚙️ **Installation & Setup**  
 
-**Backend (FastAPI + Whisper)**  
+**Backend (FastAPI + Whisper)**  -- hosted on Render
+URL: https://vaish-asr-backend.onrender.com
+
 ```# Clone repo
 git clone https://github.com/iamVL/vaish-asr-whisper-transcriber.git
 cd vaish-asr-whisper-transcriber
@@ -47,16 +49,19 @@ cd vaish-asr-whisper-transcriber
 # Setup venv
 python3 -m venv .venv
 source .venv/bin/activate
-
-# Install deps
 pip install -r requirements.txt
-
-# Run backend
+mkdir -p uploads
 uvicorn app.main:app --reload
+
+# http://127.0.0.1:8000/docs
 ```
-**Frontend (React + Vite + Tailwind)**  
+**Frontend (React + Vite + Tailwind)**  -- hosted on Vercel
+URL: https://vaish-asr-whisper-transcriber.vercel.app
+
 ```cd client
+echo "VITE_API_BASE_URL=http://127.0.0.1:8000" > .env
 npm install
 npm run dev
+# http://localhost:5173
 ```
 
