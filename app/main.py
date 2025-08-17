@@ -108,11 +108,15 @@ async def transcribe(
         shutil.copyfileobj(file.file, out)
 
     # 2) ASR with word timestamps
-    segments, _ = whisper_model.transcribe(
+    # FORCE ENGLISH + add a few stability flags
+    segments, info = whisper_model.transcribe(
         dest_path,
-        beam_size=1,
-        word_timestamps=True,
-        vad_filter=True,
+        language="en",                 # lock language to English
+        task="transcribe",             # do not translate
+        word_timestamps=True,          # keep word-level timings
+        vad_filter=True,               # trim long silences/breaths
+        condition_on_previous_text=False,  # reduces drift on short clips
+        beam_size=5,                   # a bit more stable decoding
     )
 
     words = []
