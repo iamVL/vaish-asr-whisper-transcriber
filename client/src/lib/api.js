@@ -36,3 +36,5 @@ export const getTranscript = (tid) => api.get(`/transcripts/${tid}`);
 export const updateTranscript = (tid, text) =>
   api.put(`/transcripts/${tid}`, { text });
 export const deleteTranscript = (tid) => api.delete(`/transcripts/${tid}`);
+
+export default api;
