@@ -17,14 +17,20 @@ from faster_whisper import WhisperModel
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Voice App Backend")
+_raw = os.getenv("CORS_ORIGINS", "[]")
+try:
+    origins = json.loads(_raw) if _raw.strip().startswith("[") else [o.strip() for o in _raw.split(",") if o.strip()]
+except Exception:
+    origins = ["*"]
 
 # CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.CORS_ORIGINS,
+    allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],   # GET, POST, PUT, DELETE, OPTIONS
+    allow_headers=["*"],   # Authorization, Content-Type, etc.
+    expose_headers=["*"],
 )
 
 # ---- Load ASR model once ----
